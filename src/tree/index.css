@@ -2,11 +2,12 @@
   background-color: #efefef;
   height: 100%;
   padding: 10px;
+  margin-left: -20px;
   font-family: monospace;
 }
 
 .node {
-  padding-left: 20px;
+  margin-left: 20px;
 }
 
 .children {

@@ -5,54 +5,58 @@ exports[`it matches the snapshot 1`] = `
   <div
     class="tree"
   >
-    root
     <div
-      class="children"
+      class="node"
     >
+      root
       <div
-        class="node"
+        class="children"
       >
-        ant
-      </div>
-      <div
-        class="node"
-      >
-        bear
         <div
-          class="children"
+          class="node"
         >
+          ant
+        </div>
+        <div
+          class="node"
+        >
+          bear
           <div
-            class="node"
+            class="children"
           >
-            cat
-          </div>
-          <div
-            class="node"
-          >
-            dog
             <div
-              class="children"
+              class="node"
             >
+              cat
+            </div>
+            <div
+              class="node"
+            >
+              dog
               <div
-                class="node"
+                class="children"
               >
-                elephant
+                <div
+                  class="node"
+                >
+                  elephant
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="node"
-      >
-        frog
         <div
-          class="children"
+          class="node"
         >
+          frog
           <div
-            class="node"
+            class="children"
           >
-            dolphin
+            <div
+              class="node"
+            >
+              dolphin
+            </div>
           </div>
         </div>
       </div>
