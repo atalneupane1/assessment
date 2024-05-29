@@ -4,25 +4,25 @@ import React from 'react';
 const Tree = () => {
   return (
     <div className="tree">
-      root
+      1 root
       <div className="children">
-        <div className="node">ant</div>
+        <div className="node">1.1 ant</div>
         <div className="node">
-          bear
+          1.2 bear
           <div className="children">
-            <div className="node">cat</div>
+            <div className="node">1.2.1 cat</div>
             <div className="node">
-              dog
+              1.2.2 dog
               <div className="children">
-                <div className="node">elephant</div>
+                <div className="node">1.2.2.1 elephant</div>
               </div>
             </div>
           </div>
         </div>
         <div className="node">
-          frog
+          1.3 frog
           <div className="children">
-            <div className="node">dolphin</div>
+            <div className="node">1.3.1 dolphin</div>
           </div>
         </div>
       </div>
