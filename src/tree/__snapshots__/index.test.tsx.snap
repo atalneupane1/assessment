@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="tree"
+  >
+    root
+    <div
+      class="children"
+    >
+      <div
+        class="node"
+      >
+        ant
+      </div>
+      <div
+        class="node"
+      >
+        bear
+        <div
+          class="children"
+        >
+          <div
+            class="node"
+          >
+            cat
+          </div>
+          <div
+            class="node"
+          >
+            dog
+            <div
+              class="children"
+            >
+              <div
+                class="node"
+              >
+                elephant
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="node"
+      >
+        frog
+        <div
+          class="children"
+        >
+          <div
+            class="node"
+          >
+            dolphin
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
