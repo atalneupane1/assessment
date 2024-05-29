@@ -4,3 +4,11 @@
   padding: 10px;
   font-family: monospace;
 }
+
+.node {
+  padding-left: 20px;
+}
+
+.children {
+  margin-left: 20px;
+}

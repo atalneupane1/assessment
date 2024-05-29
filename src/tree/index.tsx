@@ -4,15 +4,27 @@ const Tree = () => {
   return (
     <div className="tree">
       root
-      <br />
-      &nbsp;&nbsp;&nbsp;&nbsp;ant <br />
-      &nbsp;&nbsp;&nbsp;&nbsp;bear <br />
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cat <br />
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dog <br />
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elephant{" "}
-      <br />
-      &nbsp;&nbsp;&nbsp;&nbsp;frog <br />
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dolphin <br />
+      <div className="children">
+        <div className="node">ant</div>
+        <div className="node">
+          bear
+          <div className="children">
+            <div className="node">cat</div>
+            <div className="node">
+              dog
+              <div className="children">
+                <div className="node">elephant</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="node">
+          frog
+          <div className="children">
+            <div className="node">dolphin</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
