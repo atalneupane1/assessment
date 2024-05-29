@@ -15,31 +15,31 @@ exports[`it matches the snapshot 1`] = `
         <div
           class="node"
         >
-          ant
+          a.nt
         </div>
         <div
           class="node"
         >
-          bear
+          b.ear
           <div
             class="children"
           >
             <div
               class="node"
             >
-              cat
+              c..at
             </div>
             <div
               class="node"
             >
-              dog
+              d..og
               <div
                 class="children"
               >
                 <div
                   class="node"
                 >
-                  elephant
+                  e...lephant
                 </div>
               </div>
             </div>
@@ -48,14 +48,14 @@ exports[`it matches the snapshot 1`] = `
         <div
           class="node"
         >
-          frog
+          f.rog
           <div
             class="children"
           >
             <div
               class="node"
             >
-              dolphin
+              d..olphin
             </div>
           </div>
         </div>

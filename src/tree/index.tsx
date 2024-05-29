@@ -7,12 +7,16 @@ type Node = {
   children?: Node[];
 };
 
-const renderTree = (node: Node) => (
+const addPeriods = (name:string, level:number) => {
+  return name.charAt(0) + ".".repeat(level) + name.slice(1);
+};
+
+const renderTree = (node: Node, level=0) => (
   <div className="node">
-    {node.name}
+    {addPeriods(node.name, level)}
     {node.children && (
       <div className="children">
-        {node.children.map((child) => renderTree(child))}
+        {node.children.map((child) => renderTree(child, level+1))}
       </div>
     )}
   </div>
