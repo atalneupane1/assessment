@@ -3,17 +3,27 @@ import "./index.css";
 import React, { useEffect, useState } from "react";
 import { getTreeData, saveTreeData } from "./api";
 
-import data from "./data.json";
+import { debounce } from "./utility";
 
 type Node = {
   name: string;
   children?: Node[];
 };
 
+/**
+ * 
+ * @param name - name of the node
+ * @param level - level of the node
+ * @returns display name of the node with appropriate number of periods
+ */
 const addPeriods = (name:string, level:number) => {
   return name.charAt(0) + ".".repeat(level) + name.slice(1);
 };
 
+/**
+ * 
+ * @param node - node whose children are to be alphabetized, recursively called
+ */
 const alphabetizeTree = (node: Node) => {
   if (node.children) {
     node.children.sort((a, b) => a.name.localeCompare(b.name));
@@ -21,6 +31,15 @@ const alphabetizeTree = (node: Node) => {
   }
 };
 
+/**
+ * 
+ * @param node - node to be rendered
+ * @param addNode - function that is called when a node is added
+ * @param removeNode - function to be called when node is removed
+ * @param indexNo - index of the node within the children array
+ * @param level - level of the tree
+ * @returns - render for tree with appropriate interactive elements
+ */
 const renderTree = (
   node: Node,
   addNode: Function,
@@ -61,6 +80,9 @@ const Tree = () => {
     fetchData();
   }, []);
 
+  /**
+   * Function to determine order of sorting and set data accordingly
+   */
   const toggleAlphabetize = () => {
     if (isAlphabetized) {
       setTreeData(JSON.parse(JSON.stringify(originalData)));
@@ -73,7 +95,10 @@ const Tree = () => {
     }
   };
 
-  const addNode = async (e: any, parentNode: Node) => {
+  /**
+   * Debounced function to add node
+   */
+  const addNode = debounce(async (e: any, parentNode: Node) => {
     if (e.key === "Enter") {
       const newName = e.target.value;
       if (!parentNode.children) {
@@ -84,8 +109,12 @@ const Tree = () => {
       setTreeData({ ...treeData });
       e.target.value = "";
     }
-  };
+  }, 300);
 
+  /**
+   * 
+   * @param node - node to be removed
+   */
   const removeNode = async (node: Node) => {
     const findAndRemove = (parent: Node, name: string) => {
       parent.children = parent?.children?.filter((child) => child.name !== name);
