@@ -13,6 +13,13 @@ const addPeriods = (name:string, level:number) => {
   return name.charAt(0) + ".".repeat(level) + name.slice(1);
 };
 
+const alphabetizeTree = (node: Node) => {
+  if (node.children) {
+    node.children.sort((a, b) => a.name.localeCompare(b.name));
+    node.children.forEach(alphabetizeTree);
+  }
+};
+
 const renderTree = (
   node: Node,
   addNode: Function,
@@ -41,7 +48,21 @@ const renderTree = (
 
 const Tree = () => {
   const [treeData, setTreeData] = useState(data);
-  
+  const [isAlphabetized, setIsAlphabetized] = useState(false);
+  const [originalData, setOriginalData] = useState(data);
+
+  const toggleAlphabetize = () => {
+    if (isAlphabetized) {
+      setTreeData(JSON.parse(JSON.stringify(originalData)));
+      setIsAlphabetized(false);
+    } else {
+      const newTreeData = JSON.parse(JSON.stringify(originalData));
+      alphabetizeTree(newTreeData);
+      setTreeData(newTreeData);
+      setIsAlphabetized(true);
+    }
+  };
+
   const addNode = (e: any, parentNode: Node) => {
     if (e.key === "Enter") {
       const newName = e.target.value;
@@ -64,7 +85,12 @@ const Tree = () => {
   };
 
   return (
-    <div className="tree">{renderTree(treeData, addNode, removeNode, 0)}</div>
+    <div className="tree">
+      <button onClick={toggleAlphabetize}>
+        {isAlphabetized ? "Restore Original Order" : "Alphabetize"}
+      </button>
+      {renderTree(treeData, addNode, removeNode, 0)}
+    </div>
   );
 }
 
