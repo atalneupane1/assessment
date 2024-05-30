@@ -1,6 +1,7 @@
 import "./index.css";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { getTreeData, saveTreeData } from "./api";
 
 import data from "./data.json";
 
@@ -47,9 +48,18 @@ const renderTree = (
 );
 
 const Tree = () => {
-  const [treeData, setTreeData] = useState(data);
+  const [treeData, setTreeData] = useState(null);
   const [isAlphabetized, setIsAlphabetized] = useState(false);
-  const [originalData, setOriginalData] = useState(data);
+  const [originalData, setOriginalData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getTreeData();
+      setTreeData(data);
+      setOriginalData(data);
+    };
+    fetchData();
+  }, []);
 
   const toggleAlphabetize = () => {
     if (isAlphabetized) {
@@ -63,27 +73,33 @@ const Tree = () => {
     }
   };
 
-  const addNode = (e: any, parentNode: Node) => {
+  const addNode = async (e: any, parentNode: Node) => {
     if (e.key === "Enter") {
       const newName = e.target.value;
       if (!parentNode.children) {
         parentNode.children = [];
       }
       parentNode.children.push({ name: newName });
+      await saveTreeData(treeData);
       setTreeData({ ...treeData });
       e.target.value = "";
     }
   };
 
-  const removeNode = (node: Node) => {
+  const removeNode = async (node: Node) => {
     const findAndRemove = (parent: Node, name: string) => {
       parent.children = parent?.children?.filter((child) => child.name !== name);
       parent?.children?.forEach((child) => findAndRemove(child, name));
     };
     findAndRemove(treeData, node.name);
+    await saveTreeData(treeData);
     setTreeData({ ...treeData });
   };
 
+   if (!treeData) {
+     return <div>Loading...</div>;
+   }
+   
   return (
     <div className="tree">
       <button onClick={toggleAlphabetize}>
