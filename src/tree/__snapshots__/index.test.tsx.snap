@@ -9,6 +9,9 @@ exports[`it matches the snapshot 1`] = `
       class="node"
     >
       root
+      <button>
+        ❌
+      </button>
       <div
         class="children"
       >
@@ -16,11 +19,17 @@ exports[`it matches the snapshot 1`] = `
           class="node"
         >
           a.nt
+          <button>
+            ❌
+          </button>
         </div>
         <div
           class="node"
         >
           b.ear
+          <button>
+            ❌
+          </button>
           <div
             class="children"
           >
@@ -28,11 +37,17 @@ exports[`it matches the snapshot 1`] = `
               class="node"
             >
               c..at
+              <button>
+                ❌
+              </button>
             </div>
             <div
               class="node"
             >
               d..og
+              <button>
+                ❌
+              </button>
               <div
                 class="children"
               >
@@ -40,15 +55,31 @@ exports[`it matches the snapshot 1`] = `
                   class="node"
                 >
                   e...lephant
+                  <button>
+                    ❌
+                  </button>
                 </div>
+                <input
+                  class="children"
+                  placeholder="Add child"
+                  type="text"
+                />
               </div>
             </div>
+            <input
+              class="children"
+              placeholder="Add child"
+              type="text"
+            />
           </div>
         </div>
         <div
           class="node"
         >
           f.rog
+          <button>
+            ❌
+          </button>
           <div
             class="children"
           >
@@ -56,9 +87,22 @@ exports[`it matches the snapshot 1`] = `
               class="node"
             >
               d..olphin
+              <button>
+                ❌
+              </button>
             </div>
+            <input
+              class="children"
+              placeholder="Add child"
+              type="text"
+            />
           </div>
         </div>
+        <input
+          class="children"
+          placeholder="Add child"
+          type="text"
+        />
       </div>
     </div>
   </div>
